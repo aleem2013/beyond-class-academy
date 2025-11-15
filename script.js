@@ -1,7 +1,7 @@
 // ===========================
 // Theme Toggle
 // ===========================
-const themeToggle = document.querySelector('.theme-toggle');
+const themeToggles = document.querySelectorAll('.theme-toggle');
 const body = document.body;
 
 // Check for saved theme preference or default to light mode
@@ -9,20 +9,23 @@ const currentTheme = localStorage.getItem('theme') || 'light';
 body.classList.remove('light-theme', 'dark-theme');
 body.classList.add(currentTheme + '-theme');
 
-themeToggle.addEventListener('click', () => {
-    const isDark = body.classList.contains('dark-theme');
+// Add click listener to all theme toggle buttons (desktop and mobile)
+themeToggles.forEach(toggle => {
+    toggle.addEventListener('click', () => {
+        const isDark = body.classList.contains('dark-theme');
 
-    body.classList.remove('light-theme', 'dark-theme');
-    body.classList.add(isDark ? 'light-theme' : 'dark-theme');
+        body.classList.remove('light-theme', 'dark-theme');
+        body.classList.add(isDark ? 'light-theme' : 'dark-theme');
 
-    // Save preference
-    localStorage.setItem('theme', isDark ? 'light' : 'dark');
+        // Save preference
+        localStorage.setItem('theme', isDark ? 'light' : 'dark');
 
-    // Add animation effect
-    themeToggle.style.transform = 'rotate(360deg)';
-    setTimeout(() => {
-        themeToggle.style.transform = 'rotate(0deg)';
-    }, 300);
+        // Add animation effect to the clicked toggle
+        toggle.style.transform = 'rotate(360deg)';
+        setTimeout(() => {
+            toggle.style.transform = 'rotate(0deg)';
+        }, 300);
+    });
 });
 
 // ===========================

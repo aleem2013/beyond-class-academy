@@ -99,33 +99,59 @@ beyond-class-academy/
 
 ## Usage
 
-1. **Local Development**:
-   ```bash
-   # Simply open index.html in your browser
-   open index.html
+### Local Development
+```bash
+# Simply open index.html in your browser
+open index.html
+```
+
+### Deploy to Vercel (Recommended)
+
+**Step 1: Deploy Your Site**
+1. Go to [vercel.com](https://vercel.com)
+2. Click "Sign Up" (use GitHub, GitLab, Bitbucket, or Email)
+3. After login, click "Add New" → "Project"
+4. Click "Browse" or drag & drop your `beyond-class-academy` folder
+5. Click "Deploy"
+6. Your site is live at `your-project.vercel.app`
+
+**Step 2: Connect Custom Domain (beyondclass.academy)**
+
+1. **In Vercel Dashboard:**
+   - Go to your project → Settings → Domains
+   - Click "Add"
+   - Enter: `beyondclass.academy`
+   - Click "Add"
+   - Also add: `www.beyondclass.academy`
+   - Vercel will show DNS records to configure
+
+2. **In GoDaddy (DNS Settings):**
+   - Login to GoDaddy → My Products → Domains
+   - Click on `beyondclass.academy` → DNS
+   - Add these records:
+
+   ```
+   Type: A
+   Name: @
+   Value: 76.76.21.21
+   TTL: 600 seconds
+
+   Type: CNAME
+   Name: www
+   Value: cname.vercel-dns.com
+   TTL: 1 Hour
    ```
 
-2. **Deploy to Web Server**:
-   - Upload all files to your web server
-   - Ensure the `images/` folder is in the same directory
-   - Point your domain to the `index.html` file
+3. **Verify & Wait:**
+   - Click "Verify" in Vercel
+   - DNS propagation takes 1-24 hours
+   - HTTPS is automatically configured
+   - Your site will be live at `beyondclass.academy`
 
-3. **Deploy to GitHub Pages**:
-   ```bash
-   git init
-   git add .
-   git commit -m "Initial commit"
-   git branch -M main
-   git remote add origin https://github.com/yourusername/beyond-class-academy.git
-   git push -u origin main
-   ```
-   - Go to Settings > Pages
-   - Select main branch
-   - Your site will be live at `https://yourusername.github.io/beyond-class-academy/`
-
-4. **Deploy to Netlify/Vercel**:
-   - Drag and drop the entire folder
-   - Your site will be live instantly
+### Alternative: Deploy to Netlify
+- Go to [netlify.com](https://netlify.com)
+- Drag and drop the folder
+- Follow domain setup instructions
 
 ## Customization
 
