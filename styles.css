@@ -990,7 +990,12 @@ body {
     }
 
     .hero {
-        padding: 6rem 0 3rem;
+        padding: 4rem 0 3rem;
+        margin-top: 90px;
+    }
+
+    .dark-theme .hero {
+        margin-top: 110px;
     }
 
     .hero-title {
@@ -1047,6 +1052,15 @@ body {
 
     .logo-dark {
         height: 85px;
+    }
+
+    .hero {
+        padding: 3rem 0 2rem;
+        margin-top: 80px;
+    }
+
+    .dark-theme .hero {
+        margin-top: 95px;
     }
 
     .hero-title {
